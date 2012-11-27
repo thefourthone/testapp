@@ -12,7 +12,10 @@ import android.widget.TextView;
 public class MainActivity extends Activity implements OnClickListener{
 	Button hello, bye;
 	MediaPlayer voice;
+	boolean sound=false;
 	TextView text;
+	Thread playerthread;
+	int playingmusic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,19 +40,28 @@ public class MainActivity extends Activity implements OnClickListener{
 		switch(v.getId()){
 		case R.id.bhello:
 			text.setText("hello");
-			voice =  MediaPlayer.create(MainActivity.this, R.raw.iseeyou);
-			voice.start();
+			playingmusic = R.raw.iseeyou;
 			break;
 		case R.id.bbye:
 			text.setText("hey hey hey");
-			voice =  MediaPlayer.create(MainActivity.this, R.raw.heyheyhey);
-			voice.start();
+			playingmusic = R.raw.heyheyhey;
 			break;
 		}
-		voice.setLooping(false);
-		while(voice.isPlaying()){
+		if(!sound){
+		playerthread = new Thread(){ //code to play music
+			public void run(){
+				voice =  MediaPlayer.create(MainActivity.this, playingmusic);
+				voice.start();
+				sound = true;
+				voice.setLooping(false);
+				while(voice.isPlaying()){
+				}
+				voice.release();	
+				sound = false;
+			}
+		};
+		playerthread.start();
 		}
-		voice.release();	
 	}
     
 }
