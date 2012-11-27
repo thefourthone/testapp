@@ -10,7 +10,7 @@ import android.widget.ListView;
 public class MainMenu extends ListActivity{
 	
 	
-	String[] classes = {"MainActivity","example","example","example","example","example"};
+	String[] classes = {"MainActivity","NetworkDebug","example","example","example","example"};
 	
 	
 	

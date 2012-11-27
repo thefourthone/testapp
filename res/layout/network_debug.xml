@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+	<RadioGroup 
+	    android:id="@+id/rbgServerChoice"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+       		 <RadioButton
+           			 android:id="@+id/rbClient"
+            		 android:layout_width="wrap_content"
+           			 android:layout_height="wrap_content"
+          		     android:text="Client" />
+
+   		     <RadioButton
+   			         android:id="@+id/rbServer"
+   			         android:layout_width="wrap_content"
+    		         android:layout_height="wrap_content"
+   			         android:text="Server" 
+   			         android:checked="true"/>
+	</RadioGroup>
+
+
+    <EditText
+        android:id="@+id/etServerIP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Server IP ex/ 192.168.1.45"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/etPort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Port #"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/bSubmitConnection"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Try Connection" />
+
+    <EditText
+        android:id="@+id/etMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:hint="Message"
+        />
+
+    <Button
+        android:id="@+id/bSubmitMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Message" />
+
+    <TextView
+        android:id="@+id/tvRecievedMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Messages:" />
+
+</LinearLayout>
