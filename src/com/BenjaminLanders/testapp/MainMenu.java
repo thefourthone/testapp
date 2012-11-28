@@ -7,22 +7,17 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainMenu extends ListActivity{
-	
-	
-	String[] classes = {"MainActivity","NetworkDebug","example","example","example","example"};
-	
-	
-	
+public class MainMenu extends ListActivity {
+
+	String[] classes = { "MainActivity", "NetworkDebug", "example", "example",
+			"example", "example" };
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setListAdapter(new ArrayAdapter<String>(MainMenu.this,
 				android.R.layout.simple_list_item_1, classes));
-		
-		
-		
-		
+
 	}
 
 	@Override
@@ -32,17 +27,15 @@ public class MainMenu extends ListActivity{
 		String nameofclass = classes[position];
 		Class<?> ourclass;
 		try {
-			ourclass = Class.forName("com.BenjaminLanders.testapp."+nameofclass);
-			Intent ourIntent = new Intent(MainMenu.this , ourclass);
+			ourclass = Class.forName("com.BenjaminLanders.testapp."
+					+ nameofclass);
+			Intent ourIntent = new Intent(MainMenu.this, ourclass);
 			startActivity(ourIntent);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+
 	}
 
 }
